@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>بوابة منهج العلاج التخطيطي الشامل | Schema Therapy Hub</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #1e3a8a;
+      --primary-dark: #0f172a;
+      --primary-light: #3b82f6;
+      --accent: #0284c7;
+      --bg-canvas: #f8fafc;
+      --bg-surface: #ffffff;
+      --border-soft: #e2e8f0;
+      --border-accent: #bfdbfe;
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --success: #15803d;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
+      --shadow-md: 0 4px 12px rgba(30, 58, 138, 0.08);
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'IBM Plex Sans Arabic', 'Cairo', sans-serif;
+      background-color: var(--bg-canvas);
+      color: var(--text-main);
+      direction: rtl;
+      text-align: right;
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header.hub-header {
+      background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
+      color: #ffffff;
+      padding: 40px 20px;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero-content {
+      max-width: 800px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .badge-hero {
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      color: #bfdbfe;
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    h1.hero-title {
+      font-size: 30px;
+      font-weight: 900;
+      line-height: 1.3;
+    }
+
+    p.hero-subtitle {
+      font-size: 17px;
+      color: #e2e8f0;
+      max-width: 650px;
+    }
+
+    .metrics-bar {
+      display: flex;
+      gap: 20px;
+      margin-top: 10px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .metric-item {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: var(--radius-sm);
+      padding: 8px 16px;
+      text-align: center;
+    }
+
+    .metric-val {
+      font-size: 20px;
+      font-weight: 800;
+      color: #38bdf8;
+    }
+
+    .metric-lbl {
+      font-size: 12px;
+      color: #cbd5e1;
+    }
+
+    main.hub-main {
+      flex: 1;
+      max-width: 900px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 32px 16px 60px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .featured-lesson-card {
+      background: var(--bg-surface);
+      border: 2px solid #3b82f6;
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      box-shadow: var(--shadow-md);
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .featured-badge {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      background: #dcfce7;
+      color: #15803d;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .btn-launch {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: var(--primary);
+      color: #ffffff;
+      padding: 14px 28px;
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 16px;
+      transition: all 0.2s ease;
+      align-self: flex-start;
+      margin-top: 8px;
+    }
+
+    .btn-launch:hover {
+      background: #172554;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(30, 58, 138, 0.25);
+    }
+
+    .modules-accordion {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .module-item {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-soft);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .module-header {
+      padding: 16px 20px;
+      background: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      user-select: none;
+      border-bottom: 1px solid transparent;
+      transition: background 0.2s;
+    }
+
+    .module-header:hover {
+      background: #f8fbff;
+    }
+
+    .module-title-wrap {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .module-num {
+      background: #eff6ff;
+      color: var(--primary);
+      font-weight: 800;
+      font-size: 13px;
+      padding: 4px 8px;
+      border-radius: 6px;
+      border: 1px solid var(--border-accent);
+    }
+
+    .module-lessons-list {
+      padding: 12px 20px;
+      background: #f8fafc;
+      border-top: 1px solid var(--border-soft);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      font-size: 14.5px;
+    }
+
+    .lesson-link-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 12px;
+      background: #ffffff;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-soft);
+      text-decoration: none;
+      color: var(--text-main);
+      transition: all 0.2s;
+    }
+
+    .lesson-link-row:hover {
+      border-color: var(--primary-light);
+      background: #eff6ff;
+    }
+
+    footer.hub-footer {
+      background: var(--bg-surface);
+      border-top: 1px solid var(--border-soft);
+      padding: 24px;
+      text-align: center;
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+  </style>
+</head>
+<body>
+
+  <header class="hub-header">
+    <div class="hero-content">
+      <span class="badge-hero">منهج تفاعلي متقدم · Mobile-First</span>
+      <h1 class="hero-title">منهج العلاج التخطيطي الشامل<br><span style="color: #60a5fa;">Schema Therapy: A Practitioner's Guide</span></h1>
+      <p class="hero-subtitle">تحويل كتاب د. جيفري يونغ القياسي إلى تجربة تعليمية سريرية تفاعلية تحاكي الواقع ومبنية باللهجة المصرية المهنية البسيطة.</p>
+      
+      <div class="metrics-bar">
+        <div class="metric-item">
+          <div class="metric-val">10</div>
+          <div class="metric-lbl">وحدات دراسية</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-val">34</div>
+          <div class="metric-lbl">درساً تفاعلياً</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-val">100%</div>
+          <div class="metric-lbl">تغطية المصدر</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-val">14-17</div>
+          <div class="metric-lbl">شاشة لكل درس</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="hub-main">
+
+    <!-- Featured Ready Lesson -->
+    <div class="featured-lesson-card">
+      <span class="featured-badge">جاهز للعرض والتجربة الآن ✨</span>
+      <div>
+        <span style="font-size: 13px; font-weight: 700; color: var(--primary);">الدرس 01 · الوحدة الأولى</span>
+        <h2 style="font-size: 22px; color: var(--primary-dark); margin: 4px 0 8px 0;">من العلاج المعرفي السلوكي التقليدي إلى العلاج التخطيطي</h2>
+        <p style="color: var(--text-muted); font-size: 15px;">
+          اكتشف ليه CBT التقليدي بيفشل مع اضطرابات الشخصية، وتعرف على الافتراضات السبعة التي تسقط، وكيف صاغ جيفري يونغ النموذج التكاملي مع دراسة حالة «سارة» ومحاكاة حوار جلسة التخيل.
+        </p>
+      </div>
+
+      <div style="display: flex; gap: 12px; flex-wrap: wrap; align-items: center;">
+        <a href="01-evolution-from-cbt-to-schema.html" class="btn-launch">
+          <span>ابدأ تجربة الدرس 01 الآن (14 شاشة)</span>
+          <span>←</span>
+        </a>
+        <a href="coverage-ledger.md" style="font-size: 14px; font-weight: 600; color: var(--primary); text-decoration: underline; margin-right: 12px;">
+          عرض سجل التغطية الشامل (Coverage Ledger)
+        </a>
+      </div>
+    </div>
+
+    <!-- Modules Roadmap -->
+    <h3 style="font-size: 20px; font-weight: 800; color: var(--primary-dark);">خارطة وحدات المنهج الـ 10</h3>
+
+    <div class="modules-accordion">
+
+      <div class="module-item">
+        <div class="module-header">
+          <div class="module-title-wrap">
+            <span class="module-num">وحدة 1</span>
+            <strong>النموذج المفاهيمي وتطور العلاج التخطيطي (Chapter 1)</strong>
+          </div>
+          <span style="font-size: 13px; color: var(--success); font-weight: 700;">9 دروس (الدرس 01 نشط)</span>
+        </div>
+        <div class="module-lessons-list">
+          <a href="01-evolution-from-cbt-to-schema.html" class="lesson-link-row" style="background: #eff6ff; border-color: #93c5fd;">
+            <span><strong>الدرس 01:</strong> من العلاج المعرفي السلوكي التقليدي إلى العلاج التخطيطي</span>
+            <span style="color: var(--success); font-weight: 700; font-size: 13px;">متاح للعرض 🚀</span>
+          </a>
+          <div class="lesson-link-row" style="opacity: 0.85;">
+            <span><strong>الدرس 02:</strong> تعريف المخطط المبكر غير التكيفي وخصائصه الجوهرية</span>
+            <span style="color: var(--text-muted); font-size: 12px;">قيد التوليد</span>
+          </div>
+          <div class="lesson-link-row" style="opacity: 0.85;">
+            <span><strong>الدرس 03:</strong> أصول المخططات: الاحتياجات العاطفية الأساسية والمزاج الفطري</span>
+            <span style="color: var(--text-muted); font-size: 12px;">قيد التوليد</span>
+          </div>
+          <div class="lesson-link-row" style="opacity: 0.85;">
+            <span><strong>الدرس 04:</strong> مجال المخططات الأول: الانفصال والرفض (المخططات الـ 5)</span>
+            <span style="color: var(--text-muted); font-size: 12px;">قيد التوليد</span>
+          </div>
+          <div class="lesson-link-row" style="opacity: 0.85;">
+            <span><strong>الدرس 05:</strong> مجالات المخططات (2 و 3): ضعف الاستقلالية وضعف الحدود</span>
+            <span style="color: var(--text-muted); font-size: 12px;">قيد التوليد</span>
+          </div>
+          <div class="lesson-link-row" style="opacity: 0.85;">
+            <span><strong>الدرس 06:</strong> مجالات المخططات (4 و 5): التوجه نحو الآخرين والفرط التحفظي</span>
+            <span style="color: var(--text-muted); font-size: 12px;">قيد التوليد</span>
+          </div>
+          <div class="lesson-link-row" style="opacity: 0.85;">
+            <span><strong>الدرس 07:</strong> بيولوجيا المخططات: اللوزة الدماغية وتثبيت المخطط وشفاؤه</span>
+            <span style="color: var(--text-muted); font-size: 12px;">قيد التوليد</span>
+          </div>
+          <div class="lesson-link-row" style="opacity: 0.85;">
+            <span><strong>الدرس 08:</strong> أساليب التأقلم غير التكيفية: الاستسلام والتجنب والتعويض الزائد</span>
+            <span style="color: var(--text-muted); font-size: 12px;">قيد التوليد</span>
+          </div>
+          <div class="lesson-link-row" style="opacity: 0.85;">
+            <span><strong>الدرس 09:</strong> مدخل إلى أنماط المخططات (Schema Modes): الحالات المتغيرة للذات</span>
+            <span style="color: var(--text-muted); font-size: 12px;">قيد التوليد</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="module-item">
+        <div class="module-header">
+          <div class="module-title-wrap">
+            <span class="module-num">وحدة 2</span>
+            <strong>التقييم والصياغة العلاجية والتعليم النفسي (Chapter 2)</strong>
+          </div>
+          <span style="font-size: 13px; color: var(--text-muted);">3 دروس</span>
+        </div>
+      </div>
+
+      <div class="module-item">
+        <div class="module-header">
+          <div class="module-title-wrap">
+            <span class="module-num">وحدة 3</span>
+            <strong>الاستراتيجيات المعرفية لتعديل المخططات (Chapter 3)</strong>
+          </div>
+          <span style="font-size: 13px; color: var(--text-muted);">2 درس</span>
+        </div>
+      </div>
+
+      <div class="module-item">
+        <div class="module-header">
+          <div class="module-title-wrap">
+            <span class="module-num">وحدة 4</span>
+            <strong>الاستراتيجيات التجريبية / الانفعالية (Chapter 4)</strong>
+          </div>
+          <span style="font-size: 13px; color: var(--text-muted);">3 دروس</span>
+        </div>
+      </div>
+
+      <div class="module-item">
+        <div class="module-header">
+          <div class="module-title-wrap">
+            <span class="module-num">وحدة 5</span>
+            <strong>كسر النمط السلوكي (Chapter 5)</strong>
+          </div>
+          <span style="font-size: 13px; color: var(--text-muted);">3 دروس</span>
+        </div>
+      </div>
+
+      <div class="module-item">
+        <div class="module-header">
+          <div class="module-title-wrap">
+            <span class="module-num">وحدة 6</span>
+            <strong>العلاقة العلاجية: حجر الزاوية (Chapter 6)</strong>
+          </div>
+          <span style="font-size: 13px; color: var(--text-muted);">3 دروس</span>
+        </div>
+      </div>
+
+      <div class="module-item">
+        <div class="module-header">
+          <div class="module-title-wrap">
+            <span class="module-num">وحدة 7</span>
+            <strong>استراتيجيات علاجية تفصيلية لكل مجال مخططات (Chapter 7)</strong>
+          </div>
+          <span style="font-size: 13px; color: var(--text-muted);">3 دروس</span>
+        </div>
+      </div>
+
+      <div class="module-item">
+        <div class="module-header">
+          <div class="module-title-wrap">
+            <span class="module-num">وحدة 8</span>
+            <strong>العمل المتعمق مع أنماط المخططات (Chapter 8)</strong>
+          </div>
+          <span style="font-size: 13px; color: var(--text-muted);">2 درس</span>
+        </div>
+      </div>
+
+      <div class="module-item">
+        <div class="module-header">
+          <div class="module-title-wrap">
+            <span class="module-num">وحدة 9</span>
+            <strong>العلاج التخطيطي لاضطراب الشخصية الحدية BPD (Chapter 9)</strong>
+          </div>
+          <span style="font-size: 13px; color: var(--text-muted);">3 دروس</span>
+        </div>
+      </div>
+
+      <div class="module-item">
+        <div class="module-header">
+          <div class="module-title-wrap">
+            <span class="module-num">وحدة 10</span>
+            <strong>العلاج التخطيطي لاضطراب الشخصية النرجسية NPD (Chapter 10)</strong>
+          </div>
+          <span style="font-size: 13px; color: var(--text-muted);">3 دروس</span>
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <footer class="hub-footer">
+    <p>مشروع رقمنة منهج العلاج المعرفي التخطيطي · مستودع GitHub: <code>ahmed-elsissy/Schema-Therapy</code></p>
+  </footer>
+
+</body>
+</html>
