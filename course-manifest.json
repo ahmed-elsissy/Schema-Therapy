@@ -1,0 +1,388 @@
+{
+  "course_title": "منهج العلاج التخطيطي الشامل: من النظرية إلى الممارسة السريرية (Schema Therapy: A Practitioner's Guide)",
+  "source": "Jeffrey E. Young, Janet S. Klosko, Marjorie E. Weishaar - Schema Therapy: A Practitioner's Guide (Guilford Press)",
+  "target_audience": "المعالجون النفسيون، أطباء الطب النفسي، الأخصائيون النفسيون، ودارسو الصحة النفسية",
+  "experience_level": "متوسط إلى متقدم (مع شرح بالمصرية المهنية البسيطة ومصطلحات معربة بدقة)",
+  "language": "المصرية المهنية البسيطة (مع المصطلح العلمي الإنجليزي بين قوسين)",
+  "brand_color": "#1e3a8a (Navy/Royal Blue)",
+  "total_modules": 10,
+  "total_lessons": 34,
+  "modules": [
+    {
+      "module_id": "M01",
+      "module_title": "النموذج المفاهيمي للعلاج التخطيطي (Conceptual Model)",
+      "source_chapter": "Chapter 1 (pp. 1-62)",
+      "lessons": [
+        {
+          "lesson_id": "01",
+          "file_name": "01-evolution-from-cbt-to-schema.html",
+          "title": "من العلاج المعرفي السلوكي التقليدي إلى العلاج التخطيطي",
+          "goal": "فهم أوجه قصور الـ CBT الكلاسيكي مع اضطرابات الشخصية وكيف نشأ العلاج التخطيطي لسد الفجوة",
+          "prerequisites": "لا يوجد (مدخل المنهج)",
+          "screens_count": 14,
+          "interaction_type": "مقارنة تفاعلية بين افتراضات CBT والتحديات السريرية لاضطرابات الشخصية"
+        },
+        {
+          "lesson_id": "02",
+          "file_name": "02-schema-definition-and-characteristics.html",
+          "title": "تعريف المخطط المبكر غير التكيفي وخصائصه الجوهرية",
+          "goal": "استيعاب تعريف جيفري يونغ للمخطط وخصائصه (Self-perpetuating, Ego-syntonic, Fight for survival)",
+          "prerequisites": "درس 01",
+          "screens_count": 14,
+          "interaction_type": "خريطة تفاعلية لتشريح المخطط (ذكريات، مشاعر، أحاسيس جسدية، وأفكار)"
+        },
+        {
+          "lesson_id": "03",
+          "file_name": "03-origins-core-needs-and-temperament.html",
+          "title": "أصول المخططات: الاحتياجات العاطفية الأساسية والمزاج الفطري",
+          "goal": "الربط بين إحباط الاحتياجات العاطفية الخمسة، أنواع البيئات الأسرية المؤذية، والمزاج الفطري",
+          "prerequisites": "درس 02",
+          "screens_count": 15,
+          "interaction_type": "محاكاة تفاعلية لمطابقة الاحتياج غير المشبع بنمط البيئة الأسرية والمزاج"
+        },
+        {
+          "lesson_id": "04",
+          "file_name": "04-domain-1-disconnection-and-rejection.html",
+          "title": "مجال المخططات الأول: الانفصال والرفض (Disconnection & Rejection)",
+          "goal": "إتقان المخططات الخمسة (الهجر، الشك/الإساءة، الحرمان العاطفي، النقص/العار، العزلة الاجتماعية)",
+          "prerequisites": "درس 03",
+          "screens_count": 16,
+          "interaction_type": "كروت تشخيصية سريرية لكل مخطط مع حالة واقعية وفحص المعتقد الجوهري"
+        },
+        {
+          "lesson_id": "05",
+          "file_name": "05-domains-2-and-3-autonomy-and-limits.html",
+          "title": "مجالات المخططات (2 و 3): ضعف الاستقلالية وضعف الحدود",
+          "goal": "فهم مخططات الاعتمادية، التعرض للأذى، الاندماج/الذات غير المتطورة، الفشل، الاستحقاق، وضعف ضبط النفس",
+          "prerequisites": "درس 04",
+          "screens_count": 16,
+          "interaction_type": "مخطط هيكلي تفاعلي لمقارنة صدمات الحماية الزائدة مقابل غياب الحدود"
+        },
+        {
+          "lesson_id": "06",
+          "file_name": "06-domains-4-and-5-otherdirectedness-and-overvigilance.html",
+          "title": "مجالات المخططات (4 و 5): التوجه نحو الآخرين والفرط الرقابي/التحفظ",
+          "goal": "إتقان مخططات الإخضاع، التضحية بالذات، البحث عن الاستحسان، السلبية/التشاؤم، الكبت العاطفي، المعايير الصارمة، والعقابية",
+          "prerequisites": "درس 05",
+          "screens_count": 16,
+          "interaction_type": "جدول مقارنة بين المخططات المشروطة وغير المشروطة ودينامياتها"
+        },
+        {
+          "lesson_id": "07",
+          "file_name": "07-neurobiology-perpetuation-and-healing.html",
+          "title": "بيولوجيا المخططات: اللوزة الدماغية وتثبيت المخطط مقابل شفاؤه",
+          "goal": "فهم الدماغ الانفعالي (Amygdala) والذاكرة الضمنية وكيف يحدث تثبيت المخطط وشفاؤه خطوة بخطوة",
+          "prerequisites": "درس 06",
+          "screens_count": 15,
+          "interaction_type": "مخطط SVG تفاعلي لمسار اللوزة الدماغية (Low road vs High road) وآليات الشفاء"
+        },
+        {
+          "lesson_id": "08",
+          "file_name": "08-maladaptive-coping-styles.html",
+          "title": "أساليب التأقلم غير التكيفية: الاستسلام والتجنب والتعويض الزائد",
+          "goal": "التمييز الدقيق بين أساليب التأقلم الثلاثة (Freeze/Surrender, Flight/Avoidance, Fight/Overcompensation)",
+          "prerequisites": "درس 07",
+          "screens_count": 16,
+          "interaction_type": "محاكاة حالة واحدة مع تطبيق الأساليب الثلاثة وكشف النتائج العكسية لكل أسلوب"
+        },
+        {
+          "lesson_id": "09",
+          "file_name": "09-introduction-to-schema-modes.html",
+          "title": "مدخل إلى أنماط المخططات (Schema Modes): الحالات المتغيرة للذات",
+          "goal": "فهم لماذا احتجنا مفهوم 'النمط' كحالة راهنة متغيرة (State vs Trait) والتمييز بين المجموعات الأربع للأوضاع",
+          "prerequisites": "درس 08",
+          "screens_count": 15,
+          "interaction_type": "لوحة تفاعلية للأوضاع الأربعة الكبرى: الطفل، الوالد المختل، التأقلم، والبالغ السليم"
+        }
+      ]
+    },
+    {
+      "module_id": "M02",
+      "module_title": "التقييم والصياغة العلاجية والتعليم النفسي (Assessment & Education)",
+      "source_chapter": "Chapter 2 (pp. 63-90)",
+      "lessons": [
+        {
+          "lesson_id": "10",
+          "file_name": "10-case-conceptualization-and-inventories.html",
+          "title": "صياغة الحالة التخطيطية الشاملة ومقاييس المخططات (YSQ)",
+          "goal": "إتقان خطوات صياغة الحالة باستخدام مقياس استبيان المخططات وتحديد الأولويات السريرية",
+          "prerequisites": "درس 09",
+          "screens_count": 15,
+          "interaction_type": "نموذج صياغة حالة تفاعلي وتحليل نتائج استبيان YSQ لعميل افتراضي"
+        },
+        {
+          "lesson_id": "11",
+          "file_name": "11-imagery-assessment-and-temperament.html",
+          "title": "التقييم التخيلي التشخيصي وتقييم المزاج الانفعالي",
+          "goal": "تطبيق بروتوكول التخيل التشخيصي لربط مشاعر الحاضر بذكريات الطفولة المبكرة وتقييم أبعاد المزاج الستة",
+          "prerequisites": "درس 10",
+          "screens_count": 15,
+          "interaction_type": "محاكاة حوار جلسة تخيل تشخيصي خطوة بخطوة مع أسئلة المعالج التوجيهية"
+        },
+        {
+          "lesson_id": "12",
+          "file_name": "12-psychoeducation-and-schema-formulation.html",
+          "title": "التعليم النفسي ومشاركة الصياغة مع العميل",
+          "goal": "إشراك العميل بطريقة غير وصمية في فهم مخططاته ونزع الطابع المرضي عنها وبناء الأمل",
+          "prerequisites": "درس 11",
+          "screens_count": 14,
+          "interaction_type": "سيناريو تفاعلي لتقديم خريطة المخططات للعميل وإدارة ردود أفعاله"
+        }
+      ]
+    },
+    {
+      "module_id": "M03",
+      "module_title": "الاستراتيجيات المعرفية لتعديل المخططات (Cognitive Strategies)",
+      "source_chapter": "Chapter 3 (pp. 91-109)",
+      "lessons": [
+        {
+          "lesson_id": "13",
+          "file_name": "13-cognitive-techniques-and-testing-validity.html",
+          "title": "الأسلوب العلاجي وفحص الأدلة المؤيدة والمعارضة للمخطط",
+          "goal": "تطبيق المواجهة التعاطفية وبناء حوارات فحص صحة المخطط بدقة سريرية",
+          "prerequisites": "درس 12",
+          "screens_count": 14,
+          "interaction_type": "ميزان تفاعلي للأدلة المعرفية (تفكيك الدليل الزائف ودعم الدليل الواقعي)"
+        },
+        {
+          "lesson_id": "14",
+          "file_name": "14-schema-diary-and-flashcards.html",
+          "title": "مذكرة المخططات والكروت الإرشادية المعرفية (Flashcards)",
+          "goal": "تدريب العميل على استخدام نموذج خطوات مذكرة المخططات الخمس وكتابة كارت إرشادي فعّال للحظات التنشيط",
+          "prerequisites": "درس 13",
+          "screens_count": 14,
+          "interaction_type": "بناء كارت إرشادي تفاعلي خطوة بخطوة وتعبئة نموذج مذكرة المخطط"
+        }
+      ]
+    },
+    {
+      "module_id": "M04",
+      "module_title": "الاستراتيجيات التجريبية / الانفعالية (Experiential Strategies)",
+      "source_chapter": "Chapter 4 (pp. 110-145)",
+      "lessons": [
+        {
+          "lesson_id": "15",
+          "file_name": "15-imagery-rescripting-protocol.html",
+          "title": "بروتوكول التخيل وإعادة الصياغة (Imagery Rescripting)",
+          "goal": "إتقان تقنية التخيل وإعادة كتابة السيناريو لعلاج ذكريات الصدمة وإشباع الاحتياجات المهدرة",
+          "prerequisites": "درس 14",
+          "screens_count": 16,
+          "interaction_type": "محاكاة جلسة تخيل سريرية تفاعلية مع خيارات التدخل للمعالج لحماية الطفل"
+        },
+        {
+          "lesson_id": "16",
+          "file_name": "16-chairwork-and-dialogues.html",
+          "title": "حوار الكراسي (Chairwork) والحديث بين أجزاء الذات",
+          "goal": "تطبيق تقنية الكراسي المتعددة لمواجهة الوالد المعاقب ودعم الطفل المصاب وتعزيز البالغ السليم",
+          "prerequisites": "درس 15",
+          "screens_count": 16,
+          "interaction_type": "توزيع الكراسي التفاعلي واختيار التدخل اللفظي المناسب لكل كرسي"
+        },
+        {
+          "lesson_id": "17",
+          "file_name": "17-overcoming-experiential-avoidance.html",
+          "title": "التغلب على التجنب التجريبي ومقاومة المشاعر",
+          "goal": "التعامل مع العميل الخدران انفعالياً أو المتجنب للتخيل وتفكيك آليات الدفاع تدريجياً",
+          "prerequisites": "درس 16",
+          "screens_count": 14,
+          "interaction_type": "شجرة قرارات تفاعلية للتعامل مع صعوبات ومقاومات التخيل وحوار الكراسي"
+        }
+      ]
+    },
+    {
+      "module_id": "M05",
+      "module_title": "كسر النمط السلوكي (Behavioral Pattern-Breaking)",
+      "source_chapter": "Chapter 5 (pp. 146-176)",
+      "lessons": [
+        {
+          "lesson_id": "18",
+          "file_name": "18-identifying-and-prioritizing-behaviors.html",
+          "title": "تحديد السلوكيات غير التكيفية وترتيب أولويات التغيير",
+          "goal": "رصد السلوكيات التكرارية الهادمة للذات، تقييم الجاهزية للتغيير، واختيار السلوك الهدف الأول",
+          "prerequisites": "درس 17",
+          "screens_count": 14,
+          "interaction_type": "مصفوفة ترتيب الأولويات السلوكية حسب مستوى الضرر وقابلية التنفيذ"
+        },
+        {
+          "lesson_id": "19",
+          "file_name": "19-behavioral-rehearsal-and-homework.html",
+          "title": "التدريب السلوكي ولعب الأدوار والواجبات المنزلية المتدرجة",
+          "goal": "بناء المهارات البديلة السليمة عبر لعب الأدوار والتخيل السلوكي وتصميم واجبات منزلية قابلة للنجاح",
+          "prerequisites": "درس 18",
+          "screens_count": 15,
+          "interaction_type": "محاكاة لعب أدوار تفاعلي لاختبار الاستجابة التوكيدية بدلاً من الخضوع أو الهجوم"
+        },
+        {
+          "lesson_id": "20",
+          "file_name": "20-overcoming-behavioral-blocks-and-life-changes.html",
+          "title": "تجاوز معوقات التغيير السلوكي وإحداث تحولات كبرى في الحياة",
+          "goal": "إدارة الانتكاسات وفك الارتباط بالشخصيات السامة في حياة العميل واتخاذ قرارات مصيرية",
+          "prerequisites": "درس 19",
+          "screens_count": 15,
+          "interaction_type": "دراسة حالة تفاعلية لعميل يواجه اختيار شريك حياة بديل عن النمط السام"
+        }
+      ]
+    },
+    {
+      "module_id": "M06",
+      "module_title": "العلاقة العلاجية: حجر الزاوية (The Therapy Relationship)",
+      "source_chapter": "Chapter 6 (pp. 177-206)",
+      "lessons": [
+        {
+          "lesson_id": "21",
+          "file_name": "21-limited-reparenting-principles.html",
+          "title": "إعادة الأبوة المحدودة (Limited Reparenting): المفهوم والحدود المهنية",
+          "goal": "فهم فلسفة إعادة الأبوة المحدودة كعنصر شفائي وكيفية تقديم الدفء والأمان داخل الإطار المهني الصارم",
+          "prerequisites": "درس 20",
+          "screens_count": 15,
+          "interaction_type": "بوصلة تفاعلية للحدود المهنية مقابل الإشباع العاطفي المشروع للطفل الداخلي"
+        },
+        {
+          "lesson_id": "22",
+          "file_name": "22-empathic-confrontation-in-action.html",
+          "title": "المواجهة التعاطفية (Empathic Confrontation) واختبار الواقع",
+          "goal": "إتقان الصياغة اللغوية للمواجهة التعاطفية: التحالف مع العميل ضد سلوكه التدميري دون لوم",
+          "prerequisites": "درس 21",
+          "screens_count": 15,
+          "interaction_type": "مختبر بناء عبارات المواجهة التعاطفية لاختبار قوة التعاطف قبل التحدي"
+        },
+        {
+          "lesson_id": "23",
+          "file_name": "23-therapist-own-schemas-in-therapy.html",
+          "title": "مخططات المعالج نفسه وكيفية إدارتها في الجلسة",
+          "goal": "التعرف على مخططات المعالج الشائعة (مثل التضحية، النقص، المعايير الصارمة) وتأثيرها على التحويل المضاد",
+          "prerequisites": "درس 22",
+          "screens_count": 15,
+          "interaction_type": "استبيان ذاتي تفاعلي للمعالج لاكتشاف الفخاخ المتبادلة بين مخططات المعالج والعميل"
+        }
+      ]
+    },
+    {
+      "module_id": "M07",
+      "module_title": "استراتيجيات علاجية تفصيلية لكل مجال مخططات (Detailed Strategies)",
+      "source_chapter": "Chapter 7 (pp. 207-270)",
+      "lessons": [
+        {
+          "lesson_id": "24",
+          "file_name": "24-treating-disconnection-and-rejection.html",
+          "title": "علاج مخططات مجال الانفصال والرفض سريرياً",
+          "goal": "البروتوكول السريري المتكامل لعلاج الهجر، الشك/الإساءة، والحرمان العاطفي باستخدام التقنيات الأربع مجتمعة",
+          "prerequisites": "درس 23",
+          "screens_count": 16,
+          "interaction_type": "خريطة علاجية تفاعلية لكل مخطط في مجال الرفض مع خطوات التدخل السريري"
+        },
+        {
+          "lesson_id": "25",
+          "file_name": "25-treating-autonomy-and-limits-schemas.html",
+          "title": "علاج مخططات ضعف الاستقلالية وضعف الحدود سريرياً",
+          "goal": "إجراءات التعامل مع الاعتمادية، الفشل، والاندماج، وضبط الحدود مع الاستحقاق والاندفاعية",
+          "prerequisites": "درس 24",
+          "screens_count": 16,
+          "interaction_type": "محاكاة جلسة علاجية لوضع حدود حازمة مع مريض مستحق أو معتمد"
+        },
+        {
+          "lesson_id": "26",
+          "file_name": "26-treating-otherdirectedness-and-overvigilance.html",
+          "title": "علاج مخططات التوجه للآخرين والفرط التحفظي سريرياً",
+          "goal": "تفكيك الإخضاع والتضحية، وتليين المعايير الصارمة والمخطط العقابي واستعادة العفوية واللعب",
+          "prerequisites": "درس 25",
+          "screens_count": 16,
+          "interaction_type": "تمارين تفاعلية لإعادة بناء الإذن بالمتعة والتعبير عن الحاجات الذاتية"
+        }
+      ]
+    },
+    {
+      "module_id": "M08",
+      "module_title": "العمل المتعمق مع أنماط المخططات (Schema Mode Work)",
+      "source_chapter": "Chapter 8 (pp. 271-305)",
+      "lessons": [
+        {
+          "lesson_id": "27",
+          "file_name": "27-the-four-mode-clusters.html",
+          "title": "تصنيف الأنماط الأربعة: الطفل، الوالد، التأقلم، والبالغ السليم",
+          "goal": "التعرف العميق على أوجه الذات المختلفة والتفريق بين الطفل المتألم والغاضب، والحامي المنفصل والوالد المعاقب",
+          "prerequisites": "درس 26",
+          "screens_count": 16,
+          "interaction_type": "خريطة شخصية ديناميكية لتحديد الوضع المفعل للعميل في الوقت الحقيقي"
+        },
+        {
+          "lesson_id": "28",
+          "file_name": "28-the-seven-steps-of-mode-work-annette.html",
+          "title": "الخطوات السبع للعمل مع الأنماط: دراسة حالة أنيت (Annette)",
+          "goal": "تطبيق بروتوكول الخطوات السبع الكامل من التحديد والتسمية إلى الحوارات ودمج البالغ السليم من خلال دراسة حالة أنيت الموثقة",
+          "prerequisites": "درس 27",
+          "screens_count": 17,
+          "interaction_type": "مسار تحليلي تفاعلي لحالة أنيت السريرية مع حوارات الجلسات بالنص الحرفي"
+        }
+      ]
+    },
+    {
+      "module_id": "M09",
+      "module_title": "العلاج التخطيطي لاضطراب الشخصية الحدية (BPD)",
+      "source_chapter": "Chapter 9 (pp. 306-372)",
+      "lessons": [
+        {
+          "lesson_id": "29",
+          "file_name": "29-bpd-conceptualization-and-five-modes.html",
+          "title": "الصياغة التخطيطية للشخصية الحدية والأنماط الخمسة المميزة",
+          "goal": "فهم التحولات الوجدانية الحادة للحديين من خلال الأنماط الخمسة (الطفل المهجور، الطفل الغاضب، الوالد المعاقب، الحامي المنفصل، والبالغ السليم)",
+          "prerequisites": "درس 28",
+          "screens_count": 16,
+          "interaction_type": "محاكاة تفاعلية لديناميات التبديل اللحظي بين الأنماط الخمسة لمرضى الشخصية الحدية"
+        },
+        {
+          "lesson_id": "30",
+          "file_name": "30-bpd-treatment-phases-and-crisis.html",
+          "title": "مراحل علاج الشخصية الحدية وإدارة الأزمات والسلوك الانتحاري",
+          "goal": "تنفيذ مراحل العلاج الأربع للحديين، ووضع ميثاق الأمان، والتعامل مع التهديدات الانتحارية وإيذاء النفس",
+          "prerequisites": "درس 29",
+          "screens_count": 16,
+          "interaction_type": "محاكاة إدارة أزمة طارئة خطوة بخطوة مع وضع حدود الأمان وإعادة الأبوة المحدودة"
+        },
+        {
+          "lesson_id": "31",
+          "file_name": "31-bpd-detached-protector-and-punitive-parent.html",
+          "title": "تطويع الحامي المنفصل ومحاربة الوالد المعاقب لدى مريض BPD",
+          "goal": "إتقان التقنيات التجريبية لاختراق جدار الانفصال والتبلد وهزيمة الصوت المعاقب الداخلي تماماً",
+          "prerequisites": "درس 30",
+          "screens_count": 16,
+          "interaction_type": "سيناريو سريري لحوار كراسي ثلاثي مكثف مع الحامي المنفصل والوالد المعاقب"
+        }
+      ]
+    },
+    {
+      "module_id": "M10",
+      "module_title": "العلاج التخطيطي لاضطراب الشخصية النرجسية (NPD)",
+      "source_chapter": "Chapter 10 (pp. 373-424)",
+      "lessons": [
+        {
+          "lesson_id": "32",
+          "file_name": "32-npd-conceptualization-and-three-modes.html",
+          "title": "الصياغة التخطيطية للشخصية النرجسية والأنماط الثلاثة الرئيسية",
+          "goal": "فهم البنية النفسية للنرجسية عبر الأنماط الثلاثة: المعظم لذاته (Self-Aggrandizer)، المهدئ المنفصل، والطفل الوحيد (Lonely Child)",
+          "prerequisites": "درس 31",
+          "screens_count": 16,
+          "interaction_type": "تفكيك بصري تفاعلي لطبقات الشخصية النرجسية: القناع المتعالي يخفي طفلاً وحيداً فاقداً للقيمة"
+        },
+        {
+          "lesson_id": "33",
+          "file_name": "33-npd-origins-and-differential-assessment.html",
+          "title": "أصول النرجسية في الطفولة والفرق بين النرجسية والاستحقاق الخالص",
+          "goal": "التمييز بين النرجسية التعويضية والاستحقاق الخالص، وتحليل العلاقات الحميمية لدى النرجسي ودينامياتها الزوجية",
+          "prerequisites": "درس 32",
+          "screens_count": 15,
+          "interaction_type": "مقارنة تشخيصية فارقة وأسئلة فرز سريري للتمييز بين الأنماط النرجسية"
+        },
+        {
+          "lesson_id": "34",
+          "file_name": "34-npd-treatment-protocol-and-confrontation.html",
+          "title": "بروتوكول علاج النرجسية: المواجهة التعاطفية للاستحقاق واحتضان الطفل الوحيد",
+          "goal": "تنفيذ بروتوكول علاج النرجسي، مواجهة الاستحقاق والتسلط، وتوفير الأبوة المحدودة للطفل الوحيد، والتغلب على عقبات العلاج",
+          "prerequisites": "درس 33",
+          "screens_count": 17,
+          "interaction_type": "محاكاة جلسة كاملة لمواجهة نمط المعظم لذاته والوصول إلى الطفل الوحيد دون تحفيز الهجوم"
+        }
+      ]
+    }
+  ]
+}

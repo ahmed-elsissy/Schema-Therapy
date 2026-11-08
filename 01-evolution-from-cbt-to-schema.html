@@ -1,0 +1,1211 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>الدرس 01: من العلاج المعرفي السلوكي إلى العلاج التخطيطي | Schema Therapy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #1e3a8a;
+      --primary-dark: #0f172a;
+      --primary-light: #3b82f6;
+      --accent: #0284c7;
+      --bg-canvas: #f8fafc;
+      --bg-surface: #ffffff;
+      --border-soft: #e2e8f0;
+      --border-accent: #bfdbfe;
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --success: #15803d;
+      --success-light: #dcfce7;
+      --danger: #b91c1c;
+      --danger-light: #fee2e2;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
+      --shadow-md: 0 4px 12px rgba(30, 58, 138, 0.08);
+      --shadow-lg: 0 10px 25px rgba(30, 58, 138, 0.12);
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      font-family: 'IBM Plex Sans Arabic', 'Cairo', sans-serif;
+      background-color: var(--bg-canvas);
+      color: var(--text-main);
+      direction: rtl;
+      text-align: right;
+      line-height: 1.65;
+      font-size: 16px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Top Navigation & Progress Header */
+    header.app-header {
+      background: var(--bg-surface);
+      border-bottom: 1px solid var(--border-soft);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 12px 16px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .header-content {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .header-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .badge-course {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #eff6ff;
+      color: var(--primary);
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 700;
+      border: 1px solid var(--border-accent);
+    }
+
+    .phase-indicator {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    .phase-indicator strong {
+      color: var(--primary);
+    }
+
+    /* Progress bar */
+    .progress-track {
+      width: 100%;
+      height: 8px;
+      background: #e2e8f0;
+      border-radius: 999px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--accent), var(--primary));
+      width: 7%;
+      transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      border-radius: 999px;
+    }
+
+    /* Main Container */
+    main.lesson-container {
+      flex: 1;
+      max-width: 900px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 24px 16px 120px 16px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Screens */
+    .screen {
+      display: none;
+      animation: fadeIn 0.35s ease-in-out;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .screen.active {
+      display: flex;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Typography */
+    h1.screen-title {
+      font-size: 26px;
+      font-weight: 800;
+      color: var(--primary-dark);
+      line-height: 1.35;
+    }
+
+    h2.screen-subtitle {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--primary);
+      line-height: 1.4;
+    }
+
+    p.screen-desc {
+      font-size: 16px;
+      color: var(--text-muted);
+    }
+
+    /* Visual Containers & Diagram Panels */
+    .visual-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-soft);
+      border-radius: var(--radius-md);
+      padding: 20px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .visual-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border-soft);
+    }
+
+    .visual-tag {
+      font-size: 12px;
+      font-weight: 700;
+      background: #eff6ff;
+      color: var(--primary);
+      padding: 2px 8px;
+      border-radius: 4px;
+    }
+
+    /* Functional SVG Diagrams */
+    .svg-wrapper {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 12px 0;
+    }
+
+    svg.functional-diag {
+      max-width: 100%;
+      height: auto;
+    }
+
+    /* Educational Concept Cards */
+    .interactive-card-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+
+    @media (min-width: 640px) {
+      .interactive-card-grid.cols-2 {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .concept-card {
+      background: var(--bg-surface);
+      border: 2px solid var(--border-soft);
+      border-radius: var(--radius-md);
+      padding: 16px 18px;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      position: relative;
+    }
+
+    .concept-card:hover {
+      border-color: var(--border-accent);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .concept-card.opened {
+      border-color: var(--primary-light);
+      background: #f8fbff;
+    }
+
+    .concept-card-title-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .concept-card-title {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--primary-dark);
+    }
+
+    .card-indicator {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--primary-light);
+      background: #eff6ff;
+      padding: 2px 8px;
+      border-radius: 999px;
+      transition: all 0.2s ease;
+    }
+
+    .concept-card.opened .card-indicator {
+      background: var(--primary-light);
+      color: #fff;
+    }
+
+    .concept-card-content {
+      display: none;
+      padding-top: 10px;
+      border-top: 1px dashed var(--border-accent);
+      color: var(--text-muted);
+      font-size: 15px;
+      animation: fadeIn 0.25s ease;
+    }
+
+    .concept-card.opened .concept-card-content {
+      display: block;
+    }
+
+    .concept-highlight-box {
+      background: #eff6ff;
+      border-right: 4px solid var(--primary);
+      padding: 12px 14px;
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      margin-top: 8px;
+      font-size: 14px;
+      color: var(--primary-dark);
+    }
+
+    /* Comparison Table / Matrix */
+    .comparison-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+      margin-top: 8px;
+    }
+
+    @media (min-width: 640px) {
+      .comparison-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .compare-col {
+      background: var(--bg-surface);
+      border-radius: var(--radius-md);
+      padding: 18px;
+      border: 1px solid var(--border-soft);
+    }
+
+    .compare-col.traditional {
+      border-top: 4px solid #64748b;
+    }
+
+    .compare-col.schema {
+      border-top: 4px solid var(--primary);
+      background: #fbfdff;
+    }
+
+    .compare-title {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .compare-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      font-size: 14.5px;
+    }
+
+    .compare-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      color: var(--text-muted);
+    }
+
+    .compare-list li strong {
+      color: var(--text-main);
+    }
+
+    /* Question / Quiz Panels */
+    .quiz-box {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-soft);
+      border-radius: var(--radius-md);
+      padding: 20px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .quiz-question {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--primary-dark);
+      margin-bottom: 16px;
+    }
+
+    .quiz-options {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .option-btn {
+      background: var(--bg-surface);
+      border: 2px solid var(--border-soft);
+      border-radius: var(--radius-sm);
+      padding: 14px 16px;
+      text-align: right;
+      font-size: 15px;
+      font-family: inherit;
+      color: var(--text-main);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .option-btn:hover {
+      border-color: var(--primary-light);
+      background: #f8fbff;
+    }
+
+    .option-btn.selected {
+      border-color: var(--primary);
+      background: #eff6ff;
+    }
+
+    .option-btn.correct {
+      border-color: var(--success);
+      background: var(--success-light);
+      color: var(--success);
+      font-weight: 700;
+    }
+
+    .option-btn.incorrect {
+      border-color: var(--danger);
+      background: var(--danger-light);
+      color: var(--danger);
+    }
+
+    .feedback-banner {
+      margin-top: 16px;
+      padding: 14px 16px;
+      border-radius: var(--radius-sm);
+      font-size: 14.5px;
+      display: none;
+      animation: fadeIn 0.25s ease;
+    }
+
+    .feedback-banner.correct {
+      display: block;
+      background: #f0fdf4;
+      border: 1px solid #86efac;
+      color: #14532d;
+    }
+
+    .feedback-banner.incorrect {
+      display: block;
+      background: #fef2f2;
+      border: 1px solid #fca5a5;
+      color: #7f1d1d;
+    }
+
+    /* Fixed Bottom Action Bar */
+    footer.bottom-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: var(--bg-surface);
+      border-top: 1px solid var(--border-soft);
+      padding: 14px 20px;
+      z-index: 99;
+      box-shadow: 0 -4px 16px rgba(0,0,0,0.06);
+    }
+
+    .bottom-bar-content {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .btn-nav {
+      font-family: inherit;
+      font-size: 15px;
+      font-weight: 700;
+      padding: 12px 24px;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: none;
+      transition: all 0.2s ease;
+    }
+
+    .btn-prev {
+      background: #f1f5f9;
+      color: var(--text-muted);
+    }
+
+    .btn-prev:hover {
+      background: #e2e8f0;
+      color: var(--text-main);
+    }
+
+    .btn-next {
+      background: var(--primary);
+      color: #ffffff;
+    }
+
+    .btn-next:hover {
+      background: #172554;
+    }
+
+    .btn-next:disabled {
+      background: #cbd5e1;
+      cursor: not-allowed;
+      opacity: 0.7;
+    }
+
+    /* Screen Specific Utilities */
+    .badge-pill {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .badge-blue { background: #dbeafe; color: #1e40af; }
+    .badge-green { background: #dcfce7; color: #15803d; }
+    .badge-amber { background: #fef3c7; color: #92400e; }
+
+    .takeaways-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin: 10px 0;
+    }
+
+    .takeaways-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      background: var(--bg-surface);
+      padding: 12px 14px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-soft);
+      font-size: 15px;
+    }
+
+    .takeaways-list li span.num {
+      background: var(--primary);
+      color: #fff;
+      font-weight: 800;
+      font-size: 13px;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .case-box {
+      background: #f8fafc;
+      border-right: 4px solid var(--accent);
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      padding: 16px;
+      margin: 12px 0;
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    /* Mode Map Diagram */
+    .diagram-layer {
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+    .diagram-layer:hover {
+      filter: drop-shadow(0 4px 6px rgba(0,0,0,0.15));
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Navigation & Progress Header -->
+  <header class="app-header">
+    <div class="header-content">
+      <div class="header-top">
+        <span class="badge-course">العلاج التخطيطي · الدرس 01</span>
+        <div class="phase-indicator" id="phaseIndicator">
+          المرحلة: <strong id="currentPhaseName">نبدأ بالحالة</strong> · <span id="screenProgressInPhase">1/2</span>
+        </div>
+      </div>
+      <div class="progress-track" aria-label="شريط التقدم">
+        <div class="progress-fill" id="progressBar" style="width: 7%;"></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Lesson Flow -->
+  <main class="lesson-container">
+
+    <!-- SCREEN 1: الافتتاح ومبررات الدرس والحالة الاستهلالية -->
+    <div class="screen active" data-phase="نبدأ بالحالة" data-phase-index="1" data-phase-total="2">
+      <span class="badge-pill badge-blue">الافتتاح والمدخل السريري</span>
+      <h1 class="screen-title">من العلاج المعرفي السلوكي التقليدي إلى العلاج التخطيطي</h1>
+      <p class="screen-desc">ليه العلاج المعرفي السلوكي (CBT) بينجح جداً مع الاكتئاب والقلق البسيط، لكنه بيقف عاجز أمام اضطرابات الشخصية والأنماط المتكررة؟</p>
+
+      <div class="visual-card">
+        <div class="visual-header">
+          <span class="visual-tag">هتتعلم إيه في الدرس ده؟</span>
+        </div>
+        <ul class="takeaways-list">
+          <li>
+            <span class="num">1</span>
+            <div><strong>فهم أسباب فشل CBT الكلاسيكي:</strong> هنكتشف الافتراضات السبعة اللي بتتعارض تماماً مع مريض اضطراب الشخصية.</div>
+          </li>
+          <li>
+            <span class="num">2</span>
+            <div><strong>جوهر النموذج التكاملي:</strong> إزاي دمج جيفري يونغ بين التعلق، الجشطالت، والعلاقات بالموضوع لسد الفجوة.</div>
+          </li>
+          <li>
+            <span class="num">3</span>
+            <div><strong>الأسلوب العلاجي الجديد:</strong> التعرف على فكرة "إعادة الأبوة المحدودة" والمواجهة التعاطفية.</div>
+          </li>
+          <li>
+            <span class="num">4</span>
+            <div><strong>التطبيق على حالة سريرية:</strong> تشريح مسار مريضة علقت في العلاج التقليدي دون تحسن حقيقي.</div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="case-box">
+        <strong>حالة استهلالية (سارة - 32 سنة):</strong><br>
+        سارة جت العيادة بعد 6 شهور CBT كلاسيكي عشان نوبات هلع واكتئاب. الأعراض الحادة هديت شوية، لكنها كل ما ترتبط بشخص بتهرب فوراً أو تنهار وتبتزه عاطفياً. في الجلسة قالت لجيفري يونغ: <em>«أنا عارفة بالمنطق إنه بيحبني ومش هيسيبني، بس من جوايا حاسة برعب فظيع كأني هموت لو سابني، عقلي بيقول حاجة ومبقدرش أتحكم في مشاعري وسلوكي!»</em>.
+      </div>
+    </div>
+
+    <!-- SCREEN 2: فحص الحالة: أين تكمن الفجوة؟ -->
+    <div class="screen" data-phase="نبدأ بالحالة" data-phase-index="2" data-phase-total="2">
+      <span class="badge-pill badge-amber">تحليل سريري تفاعلي</span>
+      <h2 class="screen-subtitle">مأزق سارة: الصراع بين المنطق والشعور</h2>
+      <p class="screen-desc">افتح كل كارت علشان تكتشف ليه الأدوات المعرفية الكلاسيكية مكنتش كافية لحل مشكلة سارة:</p>
+
+      <div class="interactive-card-grid">
+        <div class="concept-card" onclick="toggleCard(this)">
+          <div class="concept-card-title-row">
+            <div class="concept-card-title">1. استبصار عقلي بدون تغيير انفعالي</div>
+            <span class="card-indicator">اضغط للاستكشاف</span>
+          </div>
+          <div class="concept-card-content">
+            سارة قادرة تملأ جدول الأفكار التلقائية بامتياز، وعارفة الأخطاء المعرفية بالاسم (التفكير الكارثي، القفز للاستنتاجات). لكن وقت ما خطيبها يتأخر في الرد، المشاعر بتسيطر عليها بنسبة 100% كأن المنطق مبقاش موجود.
+            <div class="concept-highlight-box">
+              <strong>القاعدة الذهبية:</strong> معرفة الفكرة الخاطئة مش معناها الشفاء من ألمها المتجذر.
+            </div>
+          </div>
+        </div>
+
+        <div class="concept-card" onclick="toggleCard(this)">
+          <div class="concept-card-title-row">
+            <div class="concept-card-title">2. المخطط متوافق مع الأنا (Ego-Syntonic)</div>
+            <span class="card-indicator">اضغط للاستكشاف</span>
+          </div>
+          <div class="concept-card-content">
+            في الاكتئاب العادي، المريض بيشوف الاكتئاب حاجة غريبة عليه وعايز يخلص منها. في اضطرابات الشخصية، الشعور بالهجر أو النقص هو "حقيقة كينونته" من الطفولة؛ المريض بيحس إن دي طبيعة العالم وطبيعة نفسه، ومش مجرد فكرة عابرة.
+            <div class="concept-highlight-box">
+              <strong>المصطلح السريري:</strong> المخطط بيحارب للبقاء لأنه بيمثل الإطار المألوف والآمن نفسياً للعميل حتى لو كان مؤلم.
+            </div>
+          </div>
+        </div>
+
+        <div class="concept-card" onclick="toggleCard(this)">
+          <div class="concept-card-title-row">
+            <div class="concept-card-title">3. تجنب المشاعر داخل غرفة العلاج</div>
+            <span class="card-indicator">اضغط للاستكشاف</span>
+          </div>
+          <div class="concept-card-content">
+            لما المعالج كان بيقرب من مشاعر الوحدة والرعب العميقة، سارة كانت بتقلب الجلسة تحليلات منطقية باردة أو تضحك ببرود، وده أسلوب تأقلم دفاعي (Detached Avoidance) منع وصول العلاج للجذور.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SCREEN 3: نكتشف الفكرة: افتراضات CBT التي سقطت (1 و 2) -->
+    <div class="screen" data-phase="نكتشف الفكرة" data-phase-index="1" data-phase-total="4">
+      <span class="badge-pill badge-blue">جذور الفكرة</span>
+      <h2 class="screen-subtitle">افتراضات CBT الكلاسيكية التي تسقط مع اضطرابات الشخصية</h2>
+      <p class="screen-desc">جيفري يونغ لاحظ إن الـ CBT التقليدي بيبني علاجه على افتراضات مثالية، بتتحقق في مريض القلق البسيط، لكنها بتنهار مع الشخصيات المعقدة:</p>
+
+      <div class="interactive-card-grid cols-2">
+        <div class="concept-card" onclick="toggleCard(this)">
+          <div class="concept-card-title-row">
+            <div class="concept-card-title">الافتراض الأول: سهولة الوصول للأفكار</div>
+            <span class="card-indicator">افحص الافتراض</span>
+          </div>
+          <div class="concept-card-content">
+            <strong>افتراض CBT:</strong> المريض يقدر يراقب أفكاره التلقائية ومشاعره ويسجلها في جداول بسهولة وبشكل دقيق.<br><br>
+            <strong>الواقع السريري:</strong> مرضى اضطرابات الشخصية غالباً بيتجنبوا مشاعرهم لاإرادياً، أو عندهم تبلد تام وانفصال نفسي (Dissociation)، وميعرفوش هما حاسين بإيه أصلاً!
+          </div>
+        </div>
+
+        <div class="concept-card" onclick="toggleCard(this)">
+          <div class="concept-card-title-row">
+            <div class="concept-card-title">الافتراض الثاني: التوافق المعرفي العاطفي</div>
+            <span class="card-indicator">افحص الافتراض</span>
+          </div>
+          <div class="concept-card-content">
+            <strong>افتراض CBT:</strong> تعديل الأفكار والافتراضات بالمنطق التجريبي هيؤدي تلقائياً لتعديل المشاعر والسلوك.<br><br>
+            <strong>الواقع السريري:</strong> المريض بيقولك: "أنا مقتنع عقلياً تماماً، بس في قلبي وجسدي لسه حاسس إني منبوذ وحقير وفاشل". المنطق لوحده لا يشفي الجرح الانفعالي المبكر.
+          </div>
+        </div>
+      </div>
+
+      <div class="visual-card">
+        <div class="svg-wrapper">
+          <svg viewBox="0 0 500 130" class="functional-diag" style="max-height: 120px;">
+            <rect x="20" y="20" width="200" height="90" rx="10" fill="#eff6ff" stroke="#3b82f6" stroke-width="2"/>
+            <text x="120" y="55" text-anchor="middle" font-size="14" font-weight="700" fill="#1e3a8a">الافتراض الكلاسيكي</text>
+            <text x="120" y="80" text-anchor="middle" font-size="12" fill="#475569">فكرة منطقية ➜ شعور سليم</text>
+
+            <path d="M 230 65 L 270 65" stroke="#ef4444" stroke-width="3" stroke-dasharray="4,4"/>
+            <text x="250" y="55" text-anchor="middle" font-size="14" font-weight="800" fill="#ef4444">✕ فشل</text>
+
+            <rect x="280" y="20" width="200" height="90" rx="10" fill="#fef2f2" stroke="#ef4444" stroke-width="2"/>
+            <text x="380" y="55" text-anchor="middle" font-size="14" font-weight="700" fill="#991b1b">واقع المخطط العميق</text>
+            <text x="380" y="80" text-anchor="middle" font-size="12" fill="#7f1d1d">المنطق عاجز أمام رعب اللوزة</text>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- SCREEN 4: نكتشف الفكرة: افتراضات CBT (3 و 4) -->
+    <div class="screen" data-phase="نكتشف الفكرة" data-phase-index="2" data-phase-total="4">
+      <span class="badge-pill badge-blue">مقارنة سريرية</span>
+      <h2 class="screen-subtitle">أهداف العلاج والدافعية للالتزام بالواجبات</h2>
+      <p class="screen-desc">افتح كل كارت لفهم التناقض بين تصميم الـ CBT ومتطلبات الحالات المعقدة:</p>
+
+      <div class="interactive-card-grid cols-2">
+        <div class="concept-card" onclick="toggleCard(this)">
+          <div class="concept-card-title-row">
+            <div class="concept-card-title">الافتراض الثالث: وضوح المشكلات الهدف</div>
+            <span class="card-indicator">افحص الافتراض</span>
+          </div>
+          <div class="concept-card-content">
+            <strong>افتراض CBT:</strong> المريض بيجي بأعراض واضحة ومحددة (خوف من المصاعد، نوبات هلع، أرق).<br><br>
+            <strong>الواقع السريري:</strong> مريض اضطراب الشخصية بيجي بشكاوى عامة وغائمة: "حياتي ملهاش طعم"، "علاقاتي كلها بتدمر"، أو "معرفش مين أنا أصلاً". مفيش عرض واحد محدد نبدأ بيه.
+          </div>
+        </div>
+
+        <div class="concept-card" onclick="toggleCard(this)">
+          <div class="concept-card-title-row">
+            <div class="concept-card-title">الافتراض الرابع: الالتزام التلقائي بالواجبات</div>
+            <span class="card-indicator">افحص الافتراض</span>
+          </div>
+          <div class="concept-card-content">
+            <strong>افتراض CBT:</strong> المريض عنده دافعية يتدرب، يعمل الواجب المنزلي، ويطبق التمارين بين الجلسات.<br><br>
+            <strong>الواقع السريري:</strong> الواجب نفسه بيشغل مخططات الفشل، أو الاستحقاق ("ليه المعالج يطلب مني كده؟")، أو الإخضاع والتحدي السلبي، فبيتعطل العلاج تماماً.
+          </div>
+        </div>
+      </div>
+
+      <div class="concept-highlight-box">
+        <strong>رؤية جيفري يونغ:</strong> لما المريض ميعملش الواجب في العلاج التخطيطي، إحنا مش بنعتبره "مريض مقاوم أو غير متعاون"، إحنا بنعتبر ده مادة إكلينيكية حية بتكشف المخطط اللي شغال في اللحظة دي!
+      </div>
+    </div>
+
+    <!-- SCREEN 5: نكتشف الفكرة: افتراضات CBT (5 و 6 و 7) والتحالف العلاجي -->
+    <div class="screen" data-phase="نكتشف الفكرة" data-phase-index="3" data-phase-total="4">
+      <span class="badge-pill badge-blue">العلاقة العلاجية</span>
+      <h2 class="screen-subtitle">العلاقة العلاجية: من الحياد والتعاون إلى الأبوة المحدودة</h2>
+      <p class="screen-desc">أخطر نقطة خلاف بين المدرستين كانت نظرتهم لطبيعة العلاقة بين المعالج والعميل:</p>
+
+      <div class="comparison-grid">
+        <div class="compare-col traditional">
+          <div class="compare-title">
+            <span>🏛️</span> افتراضات CBT التقليدي (5 و 6 و 7)
+          </div>
+          <ul class="compare-list">
+            <li><strong>تحالف تعاوني سريع:</strong> بيفترض إن العميل جاهز يثق في المعالج ويبني تحالف عمل في أول جلستين.</li>
+            <li><strong>حياد مهني بارد:</strong> المعالج ميسر وموجه فكري وليس مصدراً للرعاية الانفعالية المباشرة.</li>
+            <li><strong>تجنب الحديث عن الطفولة:</strong> التركيز شبه كامل على الحاضر (Here and Now) وتجاهل جذور الصدمات التطورية.</li>
+          </ul>
+        </div>
+
+        <div class="compare-col schema">
+          <div class="compare-title">
+            <span>🌟</span> مدخل العلاج التخطيطي الثوري
+          </div>
+          <ul class="compare-list">
+            <li><strong>صعوبة الثقة حتمية:</strong> المريض بيجيب مخطط الشك والإساءة والهجر معاه في غرفة العلاج ويسقطه على المعالج.</li>
+            <li><strong>إعادة الأبوة المحدودة (Limited Reparenting):</strong> المعالج يقدم دعماً ودفئاً وحدوداً أسرية سليمة تعوض حرمان الطفولة.</li>
+            <li><strong>ربط الحاضر بالماضي:</strong> استخدام التخيل لاستحضار مشاهد الطفولة المؤلمة وتعديلها انفعالياً.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- SCREEN 6: نكتشف الفكرة: جدول مقارنة شامل تفاعلي -->
+    <div class="screen" data-phase="نكتشف الفكرة" data-phase-index="4" data-phase-total="4">
+      <span class="badge-pill badge-blue">مقارنة شاملة</span>
+      <h2 class="screen-subtitle">مقارنة سريعة بين العلاجين في كروت مركزة</h2>
+      <p class="screen-desc">اضغط على كل جانب لتكتشف التحول الجذري في الممارسة السريرية:</p>
+
+      <div class="interactive-card-grid">
+        <div class="concept-card" onclick="toggleCard(this)">
+          <div class="concept-card-title-row">
+            <div class="concept-card-title">1. مدة العلاج وعمقه</div>
+            <span class="card-indicator">افتح المقارنة</span>
+          </div>
+          <div class="concept-card-content">
+            • <strong>CBT الكلاسيكي:</strong> قصير المدى (عادة من 12 إلى 20 جلسة).<br>
+            • <strong>العلاج التخطيطي:</strong> متوسط إلى طويل المدى (من سنة إلى سنتين أو أكثر حسب شدة اضطراب الشخصية وتكرار الصدمات).
+          </div>
+        </div>
+
+        <div class="concept-card" onclick="toggleCard(this)">
+          <div class="concept-card-title-row">
+            <div class="concept-card-title">2. الأساليب التقنية الأساسية</div>
+            <span class="card-indicator">افتح المقارنة</span>
+          </div>
+          <div class="concept-card-content">
+            • <strong>CBT الكلاسيكي:</strong> الحوار السقراطي، جداول الأفكار، التعرض التدريجي، والواجبات السلوكية.<br>
+            • <strong>العلاج التخطيطي:</strong> يجمع المعرفي والسلوكي مع تقنيات تجريبية مكثفة (التخيل وإعادة الصياغة، حوار الكراسي، وإعادة الأبوة المحدودة).
+          </div>
+        </div>
+
+        <div class="concept-card" onclick="toggleCard(this)">
+          <div class="concept-card-title-row">
+            <div class="concept-card-title">3. الموقف من التحويل والمقاومة</div>
+            <span class="card-indicator">افتح المقارنة</span>
+          </div>
+          <div class="concept-card-content">
+            • <strong>CBT الكلاسيكي:</strong> بيتعامل مع التحويل كعائق أو تشويه معرفي محتاج تصحيح سريع.<br>
+            • <strong>العلاج التخطيطي:</strong> التحويل وردود فعل العميل تجاه المعالج هي "الميدان الذهبي" لفهم المخططات ومواجهتها بتعاطف في اللحظة الراهنة.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SCREEN 7: نفهم الآلية: النواة التوفيقية للعلاج التخطيطي -->
+    <div class="screen" data-phase="نفهم الآلية" data-phase-index="1" data-phase-total="3">
+      <span class="badge-pill badge-green">بنية النموذج</span>
+      <h2 class="screen-subtitle">العلاج التخطيطي: مظلة تكاملية تجمع 4 مدارس كبرى</h2>
+      <p class="screen-desc">جيفري يونغ مابتدعش النموذج من فراغ، هو جمع أقوى عناصر العلاجات النفسية الرائدة في نموذج واحد متناغم ومحدد:</p>
+
+      <div class="visual-card">
+        <div class="svg-wrapper">
+          <svg viewBox="0 0 600 280" class="functional-diag">
+            <!-- Center Hub -->
+            <circle cx="300" cy="140" r="70" fill="#1e3a8a" stroke="#3b82f6" stroke-width="4" />
+            <text x="300" y="135" text-anchor="middle" font-size="16" font-weight="800" fill="#ffffff">العلاج التخطيطي</text>
+            <text x="300" y="155" text-anchor="middle" font-size="12" fill="#bfdbfe">Schema Therapy</text>
+
+            <!-- Node 1: CBT -->
+            <circle cx="120" cy="65" r="48" fill="#eff6ff" stroke="#3b82f6" stroke-width="2" />
+            <text x="120" y="62" text-anchor="middle" font-size="13" font-weight="700" fill="#1e3a8a">المعرفي السلوكي</text>
+            <text x="120" y="78" text-anchor="middle" font-size="10" fill="#475569">الهيكلة والواجبات</text>
+            <line x1="164" y1="84" x2="235" y2="118" stroke="#3b82f6" stroke-width="2" stroke-dasharray="3,3" />
+
+            <!-- Node 2: Attachment -->
+            <circle cx="480" cy="65" r="48" fill="#eff6ff" stroke="#3b82f6" stroke-width="2" />
+            <text x="480" y="62" text-anchor="middle" font-size="13" font-weight="700" fill="#1e3a8a">نظرية التعلق</text>
+            <text x="480" y="78" text-anchor="middle" font-size="10" fill="#475569">الأمان والاحتياجات</text>
+            <line x1="436" y1="84" x2="365" y2="118" stroke="#3b82f6" stroke-width="2" stroke-dasharray="3,3" />
+
+            <!-- Node 3: Gestalt -->
+            <circle cx="120" cy="215" r="48" fill="#eff6ff" stroke="#3b82f6" stroke-width="2" />
+            <text x="120" y="212" text-anchor="middle" font-size="13" font-weight="700" fill="#1e3a8a">الجشطالت</text>
+            <text x="120" y="228" text-anchor="middle" font-size="10" fill="#475569">التخيل وحوار الكراسي</text>
+            <line x1="164" y1="196" x2="235" y2="162" stroke="#3b82f6" stroke-width="2" stroke-dasharray="3,3" />
+
+            <!-- Node 4: Object Relations -->
+            <circle cx="480" cy="215" r="48" fill="#eff6ff" stroke="#3b82f6" stroke-width="2" />
+            <text x="480" y="212" text-anchor="middle" font-size="13" font-weight="700" fill="#1e3a8a">العلاقات بالموضوع</text>
+            <text x="480" y="228" text-anchor="middle" font-size="10" fill="#475569">التمثيلات الوالدية</text>
+            <line x1="436" y1="196" x2="365" y2="162" stroke="#3b82f6" stroke-width="2" stroke-dasharray="3,3" />
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- SCREEN 8: نفهم الآلية: الركائز العلاجية الثلاث المميزة -->
+    <div class="screen" data-phase="نفهم الآلية" data-phase-index="2" data-phase-total="3">
+      <span class="badge-pill badge-green">الأعمدة الثلاثة</span>
+      <h2 class="screen-subtitle">الركائز الثلاث التي تميز أسلوب المعالج التخطيطي</h2>
+      <p class="screen-desc">اضغط على كل ركيزة لفهم دورها الحيوي في غرفة العلاج:</p>
+
+      <div class="interactive-card-grid">
+        <div class="concept-card" onclick="toggleCard(this)">
+          <div class="concept-card-title-row">
+            <div class="concept-card-title">1. إعادة الأبوة المحدودة (Limited Reparenting)</div>
+            <span class="card-indicator">اكتشف الركيزة</span>
+          </div>
+          <div class="concept-card-content">
+            المعالج مش قاضي ولا كمبيوتر محايد؛ هو بيوفر "ترياقاً عاطفياً" (Antidote) لحرمان الطفولة. بيقدم الأمان، القبول، التقدير، والحدود الصحية داخل الحدود الأخلاقية والمهنية الصارمة للعلاج النفسي.
+            <div class="concept-highlight-box">
+              الهدف هو تلبية الاحتياجات العاطفية التي لم تُشبع في الطفولة، لتمكين الطفل الداخلي من النمو والشعور بالأمان.
+            </div>
+          </div>
+        </div>
+
+        <div class="concept-card" onclick="toggleCard(this)">
+          <div class="concept-card-title-row">
+            <div class="concept-card-title">2. المواجهة التعاطفية (Empathic Confrontation)</div>
+            <span class="card-indicator">اكتشف الركيزة</span>
+          </div>
+          <div class="concept-card-content">
+            المعالج بيواجه سلوكيات المريض الهدامة وأنماط تأقلمه غير المتكيفة، بس من منطلق التعاطف التام: <em>"أنا فاهم تماماً إنك بتهاجم عشان مرعوب تتساب زي زمان.. لكن الهجوم ده دلوقتي هو اللي بيخلي الناس تبعد عنك فعلاً".</em>
+          </div>
+        </div>
+
+        <div class="concept-card" onclick="toggleCard(this)">
+          <div class="concept-card-title-row">
+            <div class="concept-card-title">3. العمل التجريبي الانفعالي (Experiential Techniques)</div>
+            <span class="card-indicator">اكتشف الركيزة</span>
+          </div>
+          <div class="concept-card-content">
+            الوصول لمناطق الدماغ الانفعالية العميقة (اللوزة الدماغية) مبيحصلش بالحديث العقلاني وحده، بل من خلال إعادة معايشة المشاعر عبر التخيل التشخيصي، إعادة كتابة السيناريو، وحوار الكراسي لطرد الصوت المعاقب الداخلي.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SCREEN 9: نفهم الآلية: إنسانية النموذج ونزع الطابع المرضي -->
+    <div class="screen" data-phase="نفهم الآلية" data-phase-index="3" data-phase-total="3">
+      <span class="badge-pill badge-green">الفلسفة العلاجية</span>
+      <h2 class="screen-subtitle">نزع الطابع المرضي: إنسانية المخططات (Normalizing)</h2>
+      <p class="screen-desc">واحدة من أعظم هدايا العلاج التخطيطي للمرضى هي طريقة نظرته للاضطراب النفسي:</p>
+
+      <div class="visual-card">
+        <div style="font-size: 15.5px; line-height: 1.8; color: var(--text-main);">
+          <p>في الطب النفسي التقليدي، التشخيصات زي "اضطراب الشخصية الحدية" أو "النرجسية" غالباً بتتحول لوصمة ثقيلة بتخلي المعالج نفسه ينفر من المريض أحياناً.</p>
+          <div class="concept-highlight-box" style="margin: 14px 0;">
+            <strong>فلسفة جيفري يونغ:</strong> <em>«كل البشر عندهم مخططات وأساليب تأقلم وأنماط.. الفرق الوحيد إن مرضى اضطرابات الشخصية مخططاتهم أكتر حدة وتيبساً بسبب قسوة صدمات الطفولة وغياب الأمان. المخطط كان محاولة طفل ذكي للبقاء حياً في بيئة غير سوية!»</em>
+          </div>
+          <p>الرؤية دي بتشيل العار والذنب عن المريض، وبتخليه يدخل مع المعالج في شراكة إنسانية دافئة لإصلاح ما أفسدته الطفولة المبكرة.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- SCREEN 10: نطبّق على حالة: عودة إلى سارة بالمنظور التخطيطي -->
+    <div class="screen" data-phase="نطبّق على حالة" data-phase-index="1" data-phase-total="3">
+      <span class="badge-pill badge-amber">دراسة حالة تطبيقية</span>
+      <h2 class="screen-subtitle">إعادة فهم سارة: ما الذي حدث في طفولتها؟</h2>
+      <p class="screen-desc">لما جيفري يونغ بدأ يطبق التقييم التخطيطي على سارة، ظهرت الصورة الحقيقية وراء نوبات الهلع:</p>
+
+      <div class="case-box">
+        <strong>تاريخ الطفولة المبكر لسارة:</strong><br>
+        سارة والدها كان مدمن كحول، كان بيسيب البيت بالأيام ومحدش يعرف هو فين، ولما يرجع كان بيثور ويكسر البيت. والدتها كانت مكتئبة ومنهارة عاطفياً وبتعتمد على سارة في كل حاجة وهي عندها 7 سنين بس!<br><br>
+        <strong>المخططات النشطة (Early Maladaptive Schemas):</strong><br>
+        1. <strong>مخطط الهجر وعدم الاستقرار (Abandonment):</strong> رعب دائم إن أي شخص تحبه هيختفي فجأة.<br>
+        2. <strong>مخطط الحرمان العاطفي (Emotional Deprivation):</strong> إحساس عميق إن مفيش حد هيهتم باحتياجاتها أو يدفيها عاطفياً.<br>
+        3. <strong>مخطط الإخضاع (Subjugation):</strong> تعودت تدوس على رغباتها عشان ترضي أمها المنهارة.
+      </div>
+
+      <div class="concept-highlight-box">
+        <strong>السلوك اللي كان محير معالج CBT:</strong> لما خطيب سارة بيتأخر، مش فكرة عادية اللي بتنشط، ده "مخطط الهجر" بيولع في جهازها العصبي، فبتتحول لطفلة مرعوبة عندها 7 سنين خايفة أبوها يسيبها للأبد.
+      </div>
+    </div>
+
+    <!-- SCREEN 11: نطبّق على حالة: تمرين سريري تفاعلي -->
+    <div class="screen" data-phase="نطبّق على حالة" data-phase-index="2" data-phase-total="3">
+      <span class="badge-pill badge-amber">مختبر الممارسة</span>
+      <h2 class="screen-subtitle">تمرين سريري: حدد مسار التدخل الأنسب لسارة</h2>
+      <p class="screen-desc">لو سارة جاتلك الجلسة وقالت: «أنا عارفة بعقلي إنه مبيخونيش ومش هيسيبني، بس مش قادرة أوقف صراخي فيه وابتزازه!».. ما هو رد المعالج التخطيطي الأنسب؟</p>
+
+      <div class="quiz-box">
+        <div class="quiz-question">اختر التدخل العلاجي الأكثر اتساقاً مع فلسفة العلاج التخطيطي:</div>
+        <div class="quiz-options">
+          <button class="option-btn" onclick="checkOption(this, false, 'التدخل ده بيرجع للأسلوب المعرفي الكلاسيكي المجرد اللي سارة حفظته بالفعل ومحققش الشفاء الانفعالي.')">
+            <span>أ) نطلب منها فتح جدول الأفكار التلقائية وحساب النسبة المئوية لاحتمال هجره بالأدلة الرقمية.</span>
+          </button>
+          <button class="option-btn" onclick="checkOption(this, true, 'إجابة ممتازة! التدخل التخطيطي بيعترف بالفجوة بين العقل والقلب، ويوجه الانتباه مباشرة للطفلة المصابة بالداخل من خلال تقنية تخيلية.')">
+            <span>ب) التحالف مع الألم والنزول بالعميل للشعور: «سارة، عقلك البالغ عارف، بس الطفلة الصغيرة جواكي هي اللي مرعوبة دلوقتي.. تعالي نقفل عينينا ونشوف الطفلة دي محتاجة مننا إيه؟».</span>
+          </button>
+          <button class="option-btn" onclick="checkOption(this, false, 'التحليل المنطقي والواجب السلوكي المباشر بدون ملامسة مشاعر الهجر العميقة هيقابل بمقاومة وتجنب عاطفي.')">
+            <span>ج) إعطاؤها واجباً منزلياً بعدم الاتصال به لمدة 3 أيام لكسر الارتباط الشرطي.</span>
+          </button>
+        </div>
+        <div class="feedback-banner" id="quizFeedback1"></div>
+      </div>
+    </div>
+
+    <!-- SCREEN 12: نطبّق على حالة: محاكاة جلسة التخيل الأولى لسارة -->
+    <div class="screen" data-phase="نطبّق على حالة" data-phase-index="3" data-phase-total="3">
+      <span class="badge-pill badge-amber">محاكاة حوار سريري</span>
+      <h2 class="screen-subtitle">داخل الجلسة التخطيطية: لقاء الطفلة الخائفة</h2>
+      <p class="screen-desc">اقرأ كيف تحول الحوار السريري مع سارة باستخدام تقنية الجسر الانفعالي (Affect Bridge):</p>
+
+      <div class="visual-card">
+        <div style="display: flex; flex-direction: column; gap: 12px; font-size: 15px;">
+          <div style="background: #eff6ff; padding: 12px 14px; border-radius: 8px;">
+            <strong style="color: var(--primary);">المعالج:</strong> سارة، خدي نفس عميق، وركزي على خفقة قلبك والرعب اللي في صدرك دلوقتي.. سيبك من خطيبك خالص.. الشعور ده مألوف ليكي من امتى في طفولتك؟
+          </div>
+          <div style="background: #f8fafc; padding: 12px 14px; border-radius: 8px;">
+            <strong style="color: #64748b;">سارة (تبدأ بالبكاء):</strong> شفت نفسي وأنا في تالتة ابتدائي.. قاعدة على السلم في الضلمة مستنية بابا يرجع.. الجو كان ساقعة وأنا خايفة يدخل ميت أو ميرجعش خالص وأمي قافلة على نفسها الأوضة وبتعيط.
+          </div>
+          <div style="background: #eff6ff; padding: 12px 14px; border-radius: 8px;">
+            <strong style="color: var(--primary);">المعالج (إعادة الأبوة المحدودة):</strong> أنا معاكي يا سارة في التخيل ده دلوقتي.. مش هسيبك قاعدة لوحدك على السلم.. تعالي نروح للطفلة سارة دي، ونقولها إنها مش لوحدها وإننا موجودين عشان نحميها ونطمنها.
+          </div>
+        </div>
+      </div>
+
+      <div class="concept-highlight-box">
+        <strong>النتيجة السريرية:</strong> لأول مرة، سارة بكت بكاء تفريغ حقيقي بدل نوبة الغضب أو التبلد.. دي كانت اللحظة اللي بدأ فيها التئام جرح الهجر الحقيقي.
+      </div>
+    </div>
+
+    <!-- SCREEN 13: نثبّت ونراجع: اختبار المعرفة الشامل -->
+    <div class="screen" data-phase="نثبّت ونراجع" data-phase-index="1" data-phase-total="2">
+      <span class="badge-pill badge-green">فحص الإتقان</span>
+      <h2 class="screen-subtitle">اختبار سريع: تثبيت المفاهيم الجوهرية</h2>
+      <p class="screen-desc">أجب عن السؤال التالي لاختبار استيعابك للمقارنة بين النموذجين:</p>
+
+      <div class="quiz-box">
+        <div class="quiz-question">ما هو السبب الرئيسي الذي يجعل المخطط المبكر غير التكيفي يقاوم التغيير بشدة (Self-Perpetuating)؟</div>
+        <div class="quiz-options">
+          <button class="option-btn" onclick="checkOption(this, false, 'المخططات مش مرتبطة بمستوى الذكاء؛ بل أذكى الناس قد يمتلكون مخططات صلبة جداً.')">
+            <span>أ) لأن مريض اضطراب الشخصية يفتقر للذكاء المنطقي الكافي.</span>
+          </button>
+          <button class="option-btn" onclick="checkOption(this, true, 'إجابة دقيقة 100%! المخطط يمثل الأمان النفسي والمعنى المألوف للذات؛ التخلي عنه يشعر العميل بالضياع والانهيار حتى لو كان مؤلماً.')">
+            <span>ب) لأنه متوافق مع الأنا (Ego-Syntonic) ويمثل الإطار المألوف الوحيد لفهم الذات والعالم الذي نشأ عليه منذ الطفولة.</span>
+          </button>
+          <button class="option-btn" onclick="checkOption(this, false, 'الأدوية تخفف الأعراض الحادة (كالنوبات والقلق) لكنها لا تمحو بنية الشخصية أو المخططات التطورية.')">
+            <span>ج) لأن المريض يحتاج علاجاً دوائياً مكثفاً قبل أي تدخل نفسي.</span>
+          </button>
+        </div>
+        <div class="feedback-banner" id="quizFeedback2"></div>
+      </div>
+    </div>
+
+    <!-- SCREEN 14: كارت الخلاصة والتهنئة بالإتقان -->
+    <div class="screen" data-phase="نثبّت ونراجع" data-phase-index="2" data-phase-total="2">
+      <span class="badge-pill badge-green">تم إتقان الدرس! 🏆</span>
+      <h1 class="screen-title">مبروك! أنهيت الدرس الأول بنجاح</h1>
+      <p class="screen-desc">أنت الآن تملك الأساس النظري المتين الذي بُني عليه العلاج التخطيطي بالكامل.</p>
+
+      <div class="visual-card">
+        <div class="visual-header">
+          <span class="visual-tag">بطاقة ملخص الدرس</span>
+        </div>
+        <ul class="takeaways-list">
+          <li>
+            <span class="num">✓</span>
+            <div><strong>فشل المنطق المجرد:</strong> اضطرابات الشخصية تتطلب تدخلاً انفعالياً وتجريبياً عميقاً يعالج الذاكرة الضمنية في اللوزة الدماغية.</div>
+          </li>
+          <li>
+            <span class="num">✓</span>
+            <div><strong>النموذج التكاملي:</strong> دمج CBT مع التعلق، الجشطالت، والعلاقات بالموضوع.</div>
+          </li>
+          <li>
+            <span class="num">✓</span>
+            <div><strong>العلاقة العلاجية الشفائية:</strong> الأبوة المحدودة والمواجهة التعاطفية هما أساس الشفاء، وليسا مجرد حياد مهني.</div>
+          </li>
+          <li>
+            <span class="num">✓</span>
+            <div><strong>إنسانية المخطط:</strong> المخطط ليس مرضاً بل وسيلة دفاع طفولية ذكية أصبحت معطلة في مرحلة البلوغ.</div>
+          </li>
+        </ul>
+      </div>
+
+      <div style="background: #eff6ff; border: 2px dashed #3b82f6; border-radius: 14px; padding: 18px; text-align: center; margin-top: 10px;">
+        <h3 style="color: var(--primary); margin-bottom: 6px;">الدرس القادم (الدرس 02):</h3>
+        <p style="color: var(--text-muted); font-size: 15px;"><strong>تشريح المخطط المبكر غير التكيفي وخصائصه:</strong> كيف يتكون المخطط من (ذكريات، مشاعر، أحاسيس جسدية، وأفكار) وكيف يحارب للبقاء؟</p>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Bottom Navigation Bar -->
+  <footer class="bottom-bar">
+    <div class="bottom-bar-content">
+      <button class="btn-nav btn-prev" id="btnPrev" onclick="prevScreen()" disabled>
+        <span>السابق</span>
+      </button>
+
+      <div style="font-size: 13px; font-weight: 600; color: var(--text-muted);" id="screenCounter">
+        شاشة 1 من 14
+      </div>
+
+      <button class="btn-nav btn-next" id="btnNext" onclick="nextScreen()">
+        <span>التالي</span>
+      </button>
+    </div>
+  </footer>
+
+  <script>
+    // State management & Persistence
+    const LESSON_ID = 'lesson_01_evolution_to_schema';
+    let currentScreenIndex = 0;
+    const screens = document.querySelectorAll('.screen');
+    const totalScreens = screens.length;
+
+    // Tracking Event System
+    function logEvent(eventName, payload) {
+      const eventData = {
+        lessonId: LESSON_ID,
+        event: eventName,
+        timestamp: new Date().toISOString(),
+        payload: payload
+      };
+      console.log('[Tracking Event]', eventData);
+      try {
+        const events = JSON.parse(sessionStorage.getItem('lesson_events') || '[]');
+        events.push(eventData);
+        sessionStorage.setItem('lesson_events', JSON.stringify(events));
+      } catch (e) {
+        console.warn('Storage error', e);
+      }
+    }
+
+    // Init & Restore
+    window.addEventListener('DOMContentLoaded', () => {
+      logEvent('lesson_started', { totalScreens: totalScreens });
+      const savedIndex = sessionStorage.getItem(`${LESSON_ID}_screen`);
+      if (savedIndex !== null) {
+        goToScreen(parseInt(savedIndex, 10));
+      } else {
+        updateUI();
+      }
+    });
+
+    function updateUI() {
+      screens.forEach((s, idx) => {
+        s.classList.toggle('active', idx === currentScreenIndex);
+      });
+
+      const currentScreen = screens[currentScreenIndex];
+      const phaseName = currentScreen.getAttribute('data-phase');
+      const phaseIndex = currentScreen.getAttribute('data-phase-index');
+      const phaseTotal = currentScreen.getAttribute('data-phase-total');
+
+      document.getElementById('currentPhaseName').textContent = phaseName;
+      document.getElementById('screenProgressInPhase').textContent = `${phaseIndex}/${phaseTotal}`;
+
+      // Progress bar calculation
+      const progressPercent = Math.round(((currentScreenIndex + 1) / totalScreens) * 100);
+      document.getElementById('progressBar').style.width = `${progressPercent}%`;
+
+      // Counter
+      document.getElementById('screenCounter').textContent = `شاشة ${currentScreenIndex + 1} من ${totalScreens}`;
+
+      // Buttons
+      document.getElementById('btnPrev').disabled = (currentScreenIndex === 0);
+      
+      const nextBtn = document.getElementById('btnNext');
+      if (currentScreenIndex === totalScreens - 1) {
+        nextBtn.textContent = 'إتمام الدرس 🏆';
+        nextBtn.onclick = finishLesson;
+      } else {
+        nextBtn.textContent = 'التالي ←';
+        nextBtn.onclick = nextScreen;
+      }
+
+      sessionStorage.setItem(`${LESSON_ID}_screen`, currentScreenIndex);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function nextScreen() {
+      if (currentScreenIndex < totalScreens - 1) {
+        currentScreenIndex++;
+        logEvent('screen_viewed', { screenIndex: currentScreenIndex });
+        updateUI();
+      }
+    }
+
+    function prevScreen() {
+      if (currentScreenIndex > 0) {
+        currentScreenIndex--;
+        updateUI();
+      }
+    }
+
+    function goToScreen(index) {
+      if (index >= 0 && index < totalScreens) {
+        currentScreenIndex = index;
+        updateUI();
+      }
+    }
+
+    function finishLesson() {
+      logEvent('lesson_completed', { score: 100, mastered: true });
+      alert('تهانينا! أتممت الدرس الأول بنجاح، وتم حفظ تقدمك.');
+    }
+
+    // Interactive Concept Card Reveal
+    function toggleCard(cardElement) {
+      cardElement.classList.toggle('opened');
+      const title = cardElement.querySelector('.concept-card-title').textContent.trim();
+      logEvent('concept_opened', { concept: title, opened: cardElement.classList.contains('opened') });
+    }
+
+    // Quiz evaluation
+    function checkOption(btn, isCorrect, explanation) {
+      const parentOptions = btn.parentElement;
+      const allBtns = parentOptions.querySelectorAll('.option-btn');
+      const feedbackBanner = parentOptions.parentElement.querySelector('.feedback-banner');
+
+      allBtns.forEach(b => {
+        b.classList.remove('selected', 'correct', 'incorrect');
+        b.disabled = true;
+      });
+
+      if (isCorrect) {
+        btn.classList.add('correct');
+        feedbackBanner.className = 'feedback-banner correct';
+        feedbackBanner.innerHTML = `<strong>إجابة صحيحة!</strong> ${explanation}`;
+        logEvent('knowledge_check_mastered', { explanation });
+      } else {
+        btn.classList.add('incorrect');
+        feedbackBanner.className = 'feedback-banner incorrect';
+        feedbackBanner.innerHTML = `<strong>محاولة غير دقيقة:</strong> ${explanation} <br><button onclick="retryQuiz(this)" style="margin-top:8px; padding:4px 10px; background:#fff; border:1px solid #dc2626; border-radius:4px; cursor:pointer;">حاول مرة ثانية</button>`;
+        logEvent('knowledge_check_attempted', { correct: false });
+      }
+    }
+
+    function retryQuiz(retryBtn) {
+      const quizBox = retryBtn.closest('.quiz-box');
+      const allBtns = quizBox.querySelectorAll('.option-btn');
+      const banner = quizBox.querySelector('.feedback-banner');
+      allBtns.forEach(b => {
+        b.classList.remove('selected', 'correct', 'incorrect');
+        b.disabled = false;
+      });
+      banner.style.display = 'none';
+    }
+  </script>
+</body>
+</html>
